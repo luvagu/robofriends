@@ -1,3 +1,4 @@
+//import './wdyr';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -14,8 +15,7 @@ const logger = createLogger();
 
 const rootReducer = combineReducers({ searchRobots, requestRobots });
 
-const store = 
-  createStore(rootReducer, applyMiddleware(thunkMiddleWare, logger)
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleWare, logger)
 ); // with looger
 
 // const store = createStore(
