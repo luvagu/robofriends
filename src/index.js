@@ -1,22 +1,24 @@
-import './wdyr';
+// import './wdyr'; // why did you re-render
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { createLogger } from 'redux-logger';
+import { Provider } from 'react-redux';
 import thunkMiddleWare from 'redux-thunk';
-import './index.css';
+// import { createLogger } from 'redux-logger'; // with looger
+import 'tachyons';
 
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
-import { searchRobots, requestRobots } from './reducers';
-import 'tachyons';
+import { requestRobots, searchRobots } from './reducers';
 
-const logger = createLogger();
+import './index.css';
 
-const rootReducer = combineReducers({ searchRobots, requestRobots });
+const rootReducer = combineReducers({ requestRobots, searchRobots });
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleWare, logger)); // with looger
+// const logger = createLogger(); // with looger
+// const store = createStore(rootReducer, applyMiddleware(thunkMiddleWare, logger)); // with looger
+
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleWare)); // without looger
 
 // const store = createStore(
 //   searchRobots, /* preloadedState, */
